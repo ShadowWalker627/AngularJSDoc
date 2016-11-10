@@ -1,0 +1,45 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li, tt, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: left;
+    text-decoration: none;
+    border-bottom: none;
+    font-weight: normal;
+    font-style: normal;
+    border: none;
+    color: #111111;
+}
+
+#container{
+    border: #CCCCCC solid 1px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#tab a{
+    background-color: #eeeeee;
+    display: inline-block;
+    padding: 0.1em 1em;
+    border: 1px solid darkgrey;
+    border-radius:10px 10px 0 0;
+    color: #444444;
+}
+
+#tab a:hover{
+    background-color: #AAAAAA;
+}
+
+#tab a.active{
+    color: red;
+    font-weight: bolder;
+}
+
+input[type = 'checkbox']{
+    margin: 0;
+    height: 14px;
+}
