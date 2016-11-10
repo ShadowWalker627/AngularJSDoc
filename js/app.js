@@ -90,14 +90,14 @@ app.config(function ($compileProvider,$stateProvider, $urlRouterProvider) {
         {
             name: 'ngRepeat',
             url: '/ngRepeat',
-            templateUrl:'../doc/directive/ngRepeat.html',
+            templateUrl:'./doc/directive/ngRepeat.html',
             controller: repeatCtrl,
             controllerAs: 'vm'
         },
         {
             name: '$q',
             url:'/$q',
-            templateUrl: '../doc/ng-service/$q.html',
+            templateUrl: './doc/ng-service/$q.html',
             controller: $qCtrl,
             controllerAs: 'vm'
         }

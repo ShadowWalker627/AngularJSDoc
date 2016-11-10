@@ -10,13 +10,13 @@ FooService.$injector = [];
 function PeopleService($http) {
     var service = {
         getAllPeople: function () {
-            return $http.get('./person.json').then(function (res) {
+            return $http.get('./data/person.json').then(function (res) {
                 return res.data
             });
         },
         //直接返回$http的promise:
         getAllPeople_http_promise: function () {
-            return $http.get('./person.json')
+            return $http.get('./data/person.json')
         },
         getPerson: function (id) {
             function personMatchesParam(person) {
