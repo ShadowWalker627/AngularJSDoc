@@ -1,0 +1,30 @@
+<div>
+    I have {{vm.friends.length}} friends. They are:
+    <input type="search" ng-model="vm.result" placeholder="filter friends..." aria-label="filter friends" />
+    <ul class="example-animate-container">
+        <!--filter是匹配，limitTo是限制个数，orderBy是根据key的 value 来排序，track by解决重复值-->
+
+        <!--<li class="animate-repeat" ng-repeat="friend in vm.friends | filter: vm.result as results">-->
+        <!--<li class="animate-repeat" ng-repeat="friend in vm.friends | limitTo: vm.result as results">-->
+        <li class="animate-repeat" ng-repeat="friend in vm.friends | orderBy: vm.result as results">
+        <!--<li class="animate-repeat" ng-repeat="friend in vm.friends track by $id(friend)">-->
+            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+        </li>
+        <li class="animate-repeat" ng-if="results.length === 0">
+            <strong>No results found...</strong>
+        </li>
+    </ul>
+</div>
+<br/>
+<div>
+    <ul>
+        <!--track by 如果不用 track by，当数组中数值相同时报错
+
+          -->
+
+        <!--<li ng-repeat="num in vm.forTrackBy">-->
+        <li ng-repeat="num in vm.forTrackBy track by $index">
+            {{num}}
+        </li>
+    </ul>
+</div>

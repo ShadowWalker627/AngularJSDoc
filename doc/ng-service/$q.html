@@ -1,0 +1,27 @@
+<div>
+    <div>
+        <h3>异步编程--$q 实现</h3>
+        <div>
+<pre>
+    调用$q.defer()生成一个deferred实例：
+        具有三个方法：notify、resolve、reject
+        一个属性：promise，
+            属性值是Promise的实例：有三个方法：
+                then(successCallBack,[errorCallback], [notifyCallback])
+    $http 返回值为一个 promise，可形成promise链
+        promiseB = promiseA.then(function(result) {
+            return result + 1;
+        });
+</pre>
+        </div>
+    </div>
+
+    <div>
+        <input type="checkbox" id="okToGreet_es6" ng-model="vm.okToGreet_es6" ng-change="vm.greet_es6()">
+        <label for="okToGreet_es6">okToGreet_es6</label>
+    </div>
+    <div>
+        <input type="checkbox" id="okToGreet_commonjs" ng-model="vm.okToGreet_commonjs" ng-change="vm.greet_commonjs()">
+        <label for="okToGreet_commonjs">okToGreet_commonjs</label>
+    </div>
+</div>
