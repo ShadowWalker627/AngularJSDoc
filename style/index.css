@@ -1,5 +1,5 @@
 html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,
 del, dfn, em, img, q, dl, dt, dd, ol, ul, li, tt, fieldset, form, label,
 legend, table, caption, tbody, tfoot, thead, tr, th, td {
     margin: 0;
@@ -12,10 +12,75 @@ legend, table, caption, tbody, tfoot, thead, tr, th, td {
     font-style: normal;
     border: none;
     color: #111111;
+    font-family: arial, 宋体, sans-serif;
 }
 
-#container{
-    border: #CCCCCC solid 1px;
+body{
+    background-color: #f5f5d5;
+}
+
+.container{
+    width: 85%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+/*-----------------头部--------------------*/
+
+/*小屏幕隐藏搜索框*/
+@media screen and (max-width: 760px){
+    #header #search{
+        display: none;
+    }
+}
+
+#header{
+    border-bottom: 1px solid #000000;
+    margin: 1em;
+    float: left;
+    height: 5em;
+    width: 100%;
+}
+
+#header h1{
+    margin-top: 1.3em;
+    font-size: 1.3em;
+    float: left;
+    color: #556677;
+}
+
+#header #search{
+    float: right;
+    margin: 1.3em 1em;
+    border: #c0c0c0 solid 1px;
+}
+
+#header #searchBox{
+    float: left;
+    border: 0;
+    width: 15em;
+    line-height: 2em;
+    padding: 0;
+}
+#header #searchBox:focus{
+    /*输入框获取焦点时取消边框*/
+    outline: none;
+}
+#header #searchBtn{
+    float: left;
+    background-color: #ffffff;
+    height: 1.1em;
+    width: 1.1em;
+    padding: 0.2em;
+    cursor:pointer;
+}
+
+#header #searchBtn:active{
+    background-color: #2aabd2;
+}
+/*-----------------头部结束--------------*/
+
+#content{
     width: 100%;
     margin: 0 auto;
     padding: 10px;
@@ -42,4 +107,35 @@ legend, table, caption, tbody, tfoot, thead, tr, th, td {
 input[type = 'checkbox']{
     margin: 0;
     height: 14px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*解释部分*/
+.notePad{
+    padding: 10px;
+    border: 0.3em #e0dfcc solid;
+    border-radius: 1em;
+    /*小屏幕内容溢出*/
+    overflow: auto;
+}
+
+/*代码块*/
+.codePad{
+    background-color: #f5f2f0;
+    margin: 2em 2em;
+    padding: 1em;
+    border: 0.3em #e0dfcc solid;
+    border-radius: 1em;
+}
+
+/*控制台*/
+.terminal{
+    background-color: #0e0e0e;
+    color: #5eb95e;
+    padding: 1em;
+    border: 0.3em #e0dfcc solid;
+    border-radius: 0.3em;
 }

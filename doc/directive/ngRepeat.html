@@ -1,12 +1,65 @@
 <div>
-    I have {{vm.friends.length}} friends. They are:
-    <input type="search" ng-model="vm.result" placeholder="filter friends..." aria-label="filter friends" />
-    <ul class="example-animate-container">
-        <!--filter是匹配，limitTo是限制个数，orderBy是根据key的 value 来排序，track by解决重复值-->
+    <div>
+        <p>filter是过滤，limitTo是限制个数，orderBy是根据 key 的 value 来排序，track by解决重复值</p>
+        <p>用法示例：item in items | filter : x | orderBy : order | limitTo : limit as results</p>
+        <br/>
+        选择不同的匹配方式：
+        <label>
+            <input type="radio" ng-model="vm.type" value="filter"/>
+            filter
+        </label>
+        <label>
+            <input type="radio" ng-model="vm.type" value="orderBy"/>
+            orderBy
+        </label>
+        <label>
+            <input type="radio" ng-model="vm.type" value="limitTo"/>
+            limitTo
+        </label>
+    </div>
+    <br/>
+    <!--filter-->
+    <div ng-if="vm.type == 'filter'">
+        Filter:I have {{vm.friends.length}} friends. They are:
+        <input type="search" ng-model="vm.filter" placeholder="filter friends..." aria-label="filter friends" />
+    </div>
 
-        <!--<li class="animate-repeat" ng-repeat="friend in vm.friends | filter: vm.result as results">-->
-        <!--<li class="animate-repeat" ng-repeat="friend in vm.friends | limitTo: vm.result as results">-->
-        <li class="animate-repeat" ng-repeat="friend in vm.friends | orderBy: vm.result as results">
+    <!--orderBy-->
+    <div ng-if="vm.type == 'orderBy'">
+        <p>OrderBy：根据下面两项来排序</p>
+        <label>
+            <input type="radio" name="orderBy" ng-model="vm.orderBy" value="name"/>
+            name
+        </label>
+        <label>
+            <input type="radio" name="orderBy" ng-model="vm.orderBy" value="age"/>
+            age
+        </label>
+<pre>
+    用到 input[type=radio]:
+        ng-value 和 value 的区别：
+            ng-value：使用变量，用于引用类型数据，会把引号中的值作为变量
+            value：只支持string 类型
+</pre>
+    </div>
+
+    <!--limitTo-->
+    <div ng-if="vm.type == 'limitTo'">
+        <p>limitTo: </p>
+        <label>
+            <input type="radio" ng-model="vm.limitTo" value="5" />
+            5条
+        </label>
+        <label>
+            <input type="radio" ng-model="vm.limitTo" value="10" />
+            10条
+        </label>
+    </div>
+
+    <br/>
+
+    <ul class="example-animate-container" ng-if="vm.type == 'filter'">
+        <li class="animate-repeat" ng-repeat="friend in vm.friends | filter: vm.filter as results">
         <!--<li class="animate-repeat" ng-repeat="friend in vm.friends track by $id(friend)">-->
             [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
         </li>
@@ -14,6 +67,23 @@
             <strong>No results found...</strong>
         </li>
     </ul>
+    <ul class="example-animate-container" ng-if="vm.type == 'orderBy'">
+        <li class="animate-repeat" ng-repeat="friend in vm.friends | orderBy: vm.orderBy as results">
+            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+        </li>
+        <li class="animate-repeat" ng-if="results.length === 0">
+            <strong>No results found...</strong>
+        </li>
+    </ul>
+    <ul class="example-animate-container" ng-if="vm.type == 'limitTo'">
+        <li class="animate-repeat" ng-repeat="friend in vm.friends | limitTo: vm.limitTo as results">
+            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+        </li>
+        <li class="animate-repeat" ng-if="results.length === 0">
+            <strong>No results found...</strong>
+        </li>
+    </ul>
+
 </div>
 <br/>
 <div>

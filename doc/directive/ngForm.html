@@ -1,0 +1,64 @@
+<div>
+    <h3 class="text-center">ngForm</h3>
+    <div class="notePad">
+<pre>
+    ngSubmit与ngClick 只能有一个，来避免重复提交表单，如果同时设置，点击 enter 回车时，会同时出发这两个
+    ngClick 在模型更新之前触发
+    ngSubmit 可访问已更新的模型
+
+    input：ng 属性：
+        ng-model
+        name
+        required
+        ng-required
+        ng-minlength
+        ng-maxlength
+        ng-pattern
+        ng-change
+        ng-trim
+    表单属性：
+        $pristine
+        $dirty
+        $valid
+        $invalid
+        $pending
+        $submitted
+        $error：除 error外，其他属性值都为 boolean。error 值为 object
+</pre>
+    </div>
+    <div class="codePad">
+        <form name="myForm" class="my-form" ng-submit="vm.submit()">
+            userType:<input type="text" ng-model="vm.userType" ng-required="vm.required"
+                            ng-minlength="3" ng-maxlength="8" ng-trim="true"/>
+            <input type="submit" value="submitBtn"
+                   ng-disabled="myForm.$pristine || (vm.userType == '') || myForm.$invalid
+                                    && myForm.$error || myForm.$submitted"
+                   ng-click="vm.submitClick()"/>
+        </form>
+    </div>
+    <div class="codePad">
+<pre>
+    .my-form{
+        transition: all linear 0.5s;
+        background: transparent;
+    }
+    .my-form.ng-invalid{
+        background: red;
+    }
+</pre>
+    </div>
+    <div class="terminal">
+        <code>userType = {{vm.userType}}</code><br>
+        <code>myForm.$valid = {{myForm.$valid}}</code>
+        <code>myForm.$error = {{myForm.$error}}</code>
+    </div>
+</div>
+<style>
+    .my-form{
+        transition: all linear 0.5s;
+        background: transparent;
+    }
+    .my-form.ng-invalid{
+        background: red;
+    }
+</style>

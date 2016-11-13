@@ -4,10 +4,14 @@
 app.controller('MainCtrl',MainCtrl);
 app.controller('repeatCtrl', repeatCtrl);
 app.controller('$qCtrl',$qCtrl);
+app.controller('ngFormCtrl',ngFormCtrl);
+app.controller('understandingScopeCtrl',understandingScopeCtrl);
 
 MainCtrl.$injector = ['FooService'];
 repeatCtrl.$injector = [];
 $qCtrl.$injector = [];
+ngFormCtrl.$injector = [];
+understandingScopeCtrl.$injector = [];
 
 function MainCtrl(FooService, $interval) {
     var vm = this;
@@ -51,7 +55,9 @@ function repeatCtrl() {
         {name:'Samantha', age:60, gender:'girl'}
     ];
     vm.forTrackBy=[3,4,5,3];
-    vm.result = "25"
+    vm.filter = "25";
+    vm.orderBy = 'name';
+    vm.type = 'filter';
 }
 
 //$q
@@ -109,4 +115,20 @@ function $qCtrl($q) {
             console.log('Got notification: ' + update);
         });
     }
+}
+
+//ngFromCtrl
+function ngFormCtrl() {
+    var vm = this;
+    vm.submit = function () {
+        console.log("ng-submit");
+    };
+    vm.submitClick = function () {
+        console.log("ng-click-submit");
+    }
+}
+
+//understandingScopeCtrl
+function understandingScopeCtrl() {
+    var vm = this;
 }

@@ -100,6 +100,20 @@ app.config(function ($compileProvider,$stateProvider, $urlRouterProvider) {
             templateUrl: './doc/ng-service/$q.html',
             controller: $qCtrl,
             controllerAs: 'vm'
+        },
+        {
+            name: 'ngForm',
+            url:'/ngForm',
+            templateUrl: './doc/directive/ngForm.html',
+            controller: ngFormCtrl,
+            controllerAs: 'vm'
+        },
+        {
+            name: 'understandingScope',
+            url:'/understandingScope',
+            templateUrl: './doc/guide/understandingScope.html',
+            controller: understandingScopeCtrl,
+            controllerAs: 'vm'
         }
     ];
 
