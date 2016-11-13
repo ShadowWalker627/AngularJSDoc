@@ -2,9 +2,14 @@
 <html lang="en" ng-app="uiRouteApp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>uiRoute</title>
+    <link rel="Shortcut Icon" href="image/angularjs_logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./style/index.css"/>
 
+
+    <!--<script src="../../lib/angularjs/angular.js"></script>-->
+    <!--<script src="../../lib/angularjs/angular-ui-router.js"></script>-->
     <script type="text/javascript" src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
     <script type="text/javascript" src="//cdn.bootcss.com/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
 
@@ -14,23 +19,39 @@
     <script src="./js/component.js"></script>
 </head>
 <body>
-    <div id="container">
-        <div id="tab">
-            <a ui-sref="hello" ui-sref-active="active">Hello</a>
-            <a ui-sref="about" ui-sref-active="active">About</a>
-            <a ui-sref="people" ui-sref-active="active">People</a>
-            <a ui-sref="ngRepeat" ui-sref-active="active">ngRepeat</a>
-            <a ui-sref="$q" ui-sref-active="active">$q</a>
-        </div>
-
-        <br/>
-        <div>
-            <ui-view></ui-view>
-        </div>
-        <br/>
-
-        <div ng-controller="MainCtrl as vm">
+    <div class="container">
+        <div style="float: right" ng-controller="MainCtrl as vm">
             {{vm.time | date: 'yyyy-MM-dd HH:mm:ss'}}
+        </div>
+        <div id="header">
+            <div id="header-name">
+                <h1>Baymax Yu 网络日志</h1>
+            </div>
+            <div id="search">
+                <div>
+                    <input type="text" id="searchBox"/>
+                    <span id="searchBtn">
+                            <img width="15em" src="./image/search.ico"/>
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="tab">
+                <a ui-sref="hello" ui-sref-active="active">Hello</a>
+                <a ui-sref="about" ui-sref-active="active">About</a>
+                <a ui-sref="people" ui-sref-active="active">People</a>
+                <a ui-sref="ngRepeat" ui-sref-active="active">ngRepeat</a>
+                <a ui-sref="$q" ui-sref-active="active">$q</a>
+                <a ui-sref="ngForm" ui-sref-active="active">ngForm</a>
+                <a ui-sref="understandingScope" ui-sref-active="active">understandingScope</a>
+            </div>
+
+            <br/>
+            <div>
+                <ui-view></ui-view>
+            </div>
+            <br/>
         </div>
     </div>
 </body>
