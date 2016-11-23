@@ -1,18 +1,22 @@
 <div>
-    <div>
-        <p>filter是过滤，limitTo是限制个数，orderBy是根据 key 的 value 来排序，track by解决重复值</p>
-        <p>用法示例：item in items | filter : x | orderBy : order | limitTo : limit as results</p>
+    <div class="notePad">
+<pre>
+    filter是过滤，limitTo是限制个数，orderBy是根据 key 的 value 来排序，track by解决重复值
+    用法示例：item in items | filter : x | orderBy : order | limitTo : limit as results
+    results 用法为别名，在应用过滤器后存储中继器结果，只能在结尾使用，不能在表达式中作为运算符
+</pre>
+
         <br/>
         选择不同的匹配方式：
-        <label>
+        <label class="radio-inline">
             <input type="radio" ng-model="vm.type" value="filter"/>
             filter
         </label>
-        <label>
+        <label class="radio-inline">
             <input type="radio" ng-model="vm.type" value="orderBy"/>
             orderBy
         </label>
-        <label>
+        <label class="radio-inline">
             <input type="radio" ng-model="vm.type" value="limitTo"/>
             limitTo
         </label>
@@ -35,12 +39,15 @@
             <input type="radio" name="orderBy" ng-model="vm.orderBy" value="age"/>
             age
         </label>
+    <div class="notePad">
 <pre>
     用到 input[type=radio]:
         ng-value 和 value 的区别：
             ng-value：使用变量，用于引用类型数据，会把引号中的值作为变量
             value：只支持string 类型
 </pre>
+    </div>
+
     </div>
 
     <!--limitTo-->
@@ -57,32 +64,33 @@
     </div>
 
     <br/>
-
-    <ul class="example-animate-container" ng-if="vm.type == 'filter'">
-        <li class="animate-repeat" ng-repeat="friend in vm.friends | filter: vm.filter as results">
-        <!--<li class="animate-repeat" ng-repeat="friend in vm.friends track by $id(friend)">-->
-            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
-        </li>
-        <li class="animate-repeat" ng-if="results.length === 0">
-            <strong>No results found...</strong>
-        </li>
-    </ul>
-    <ul class="example-animate-container" ng-if="vm.type == 'orderBy'">
-        <li class="animate-repeat" ng-repeat="friend in vm.friends | orderBy: vm.orderBy as results">
-            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
-        </li>
-        <li class="animate-repeat" ng-if="results.length === 0">
-            <strong>No results found...</strong>
-        </li>
-    </ul>
-    <ul class="example-animate-container" ng-if="vm.type == 'limitTo'">
-        <li class="animate-repeat" ng-repeat="friend in vm.friends | limitTo: vm.limitTo as results">
-            [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
-        </li>
-        <li class="animate-repeat" ng-if="results.length === 0">
-            <strong>No results found...</strong>
-        </li>
-    </ul>
+    <div class="terminal">
+        <ul class="example-animate-container" ng-if="vm.type == 'filter'">
+            <li class="animate-repeat" ng-repeat="friend in vm.friends | filter: vm.filter as results">
+                <!--<li class="animate-repeat" ng-repeat="friend in vm.friends track by $id(friend)">-->
+                [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+            </li>
+            <li class="animate-repeat" ng-if="results.length === 0">
+                <strong>No results found...</strong>
+            </li>
+        </ul>
+        <ul class="example-animate-container" ng-if="vm.type == 'orderBy'">
+            <li class="animate-repeat" ng-repeat="friend in vm.friends | orderBy: vm.orderBy as results">
+                [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+            </li>
+            <li class="animate-repeat" ng-if="results.length === 0">
+                <strong>No results found...</strong>
+            </li>
+        </ul>
+        <ul class="example-animate-container" ng-if="vm.type == 'limitTo'">
+            <li class="animate-repeat" ng-repeat="friend in vm.friends | limitTo: vm.limitTo as results">
+                [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+            </li>
+            <li class="animate-repeat" ng-if="results.length === 0">
+                <strong>No results found...</strong>
+            </li>
+        </ul>
+    </div>
 
 </div>
 <br/>

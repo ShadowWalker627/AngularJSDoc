@@ -6,12 +6,20 @@ app.controller('repeatCtrl', repeatCtrl);
 app.controller('$qCtrl',$qCtrl);
 app.controller('ngFormCtrl',ngFormCtrl);
 app.controller('understandingScopeCtrl',understandingScopeCtrl);
+app.controller('directivesCtrl',directivesCtrl);
+app.controller('directiveTranscludeCtrl',directiveTranscludeCtrl);
+app.controller('$compileCtrl',$compileCtrl);
+app.controller('ngFunctionCtrl',ngFunctionCtrl);
 
 MainCtrl.$injector = ['FooService'];
 repeatCtrl.$injector = [];
 $qCtrl.$injector = [];
 ngFormCtrl.$injector = [];
 understandingScopeCtrl.$injector = [];
+directivesCtrl.$injector = [];
+directiveTranscludeCtrl.$injector = [];
+$compileCtrl.$injector = [];
+ngFunctionCtrl.$injector = [];
 
 function MainCtrl(FooService, $interval) {
     var vm = this;
@@ -124,11 +132,36 @@ function ngFormCtrl() {
         console.log("ng-submit");
     };
     vm.submitClick = function () {
+        console.log(vm.myForm);
         console.log("ng-click-submit");
     }
 }
 
 //understandingScopeCtrl
 function understandingScopeCtrl() {
+    var vm = this;
+}
+
+//directivesCtrl
+function directivesCtrl() {
+    var vm = this;
+    vm.propType = 'controller';
+    vm.selectCheckbox = function (id) {
+        console.log(id)
+    }
+}
+
+//directiveTranscludeCtrl
+function directiveTranscludeCtrl() {
+}
+
+//$compileCtrl
+function $compileCtrl() {
+    var vm = this;
+
+}
+
+//ngFunctionCtrl
+function ngFunctionCtrl() {
     var vm = this;
 }

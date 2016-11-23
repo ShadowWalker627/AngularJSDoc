@@ -1,0 +1,106 @@
+<div>
+    <h3 class="text-center">Angular内置function</h3>
+    <div class="notePad">
+        <table class="table table-illustrate">
+            <tr>
+                <td>angular.bind</td>
+                <td>
+                    相当于 apply 和 call
+                        <p>angular.bind(self, fn, args)</p>
+                    <ul>
+                        <li>①、self：fn要运行的上下文作用域</li>
+                        <li>②、fn：要操作的函数</li>
+                        <li>③、args：要传入的参数</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.bootstrap</td>
+                <td>
+                    <p>angular.bootstrap(element, [modules], [config])</p>
+                    <p>用于手动启动 angular 应用</p>
+                    <ul>
+                        <li>①、element：作为 angular 应用根节点的DOM 元素</li>
+                        <li>②、[modules]：要加载到应用中的模块数组</li>
+                        <li>③、config：object 用于定义应用程序配置选项的对象，其属性strictDi,默认值为 false，是否禁用应用程序的自动函数注释</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.copy</td>
+                <td>
+                    <p>angular.copy(source, [destination])</p>
+                    <p>深度拷贝数组或对象，source 可以是 undefined 或者 null</p>
+                    <p>source：源，destination：目标</p>
+                    <p>destination的类型必须与source类型相同</p>
+                    <ul>
+                        <li>如果未提供destination，那么会创建source(对象/数组)的副本</li>
+                        <li>如果提供source，则删除destination的所有元素(array)或者所有属性(object)，
+                            然后将source中的目标元素/属性复制到destination中</li>
+                        <li>如果source不是数组或者对象(例如 null和 undefined)，则返回source</li>
+                        <li>如果source与destination相同，则抛出异常</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.element</td>
+                <td>
+                    angular.element(element)
+                    <ul>
+                        <li>如果jQuery 可用，angular.element是jQuery函数的别名</li>
+                        <li>如果jQuery不可用，angular.element作为Angular的内置jQuery子集，称为jQuery lite 或者jqLite</li>
+                    </ul>
+                    <p>注意：Angular中的所有元素引用都是jQuery或者 jqLite包装(如指令的 compile 或者 link中的 element参数)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.equals</td>
+                <td>
+                    <p>angular.equals(o1, o2)</p>
+                    <p>确定两个对象或两个值是否相等，支持值类型，正则表达式，数组和对象；返回值为 Boolean</p>
+                    <p>以下情况，返回 true：</p>
+                    <ul>
+                        <li> 两个参数(对象/值)通过"==="比较返回 true</li>
+                        <li>o1/o2的类型相同，属性值都相同</li>
+                        <li>两个NaN 返回 true，JavaScript中NaN == NaN 返回 false</li>
+                        <li>两个值表示相同的正则表达式返回 true，JavaScript 中/abc/ == /abc/ 返回 false</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.extend</td>
+                <td>
+                    <p>angular.extend(dst, src)</p>
+                    <p>将 src 的可枚举属性复制到 dst</p>
+                    <p>可以指定多个src</p>
+                    <p>如果要保留原始对象，将空对象作为 dst</p>
+                    <p>注意：angular.extend不支持递归合并(深度复制)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.forEach</td>
+                <td>
+                    <p>angular.forEach(obj/array, iterator, [context])</p>
+                    <p>不迭代继承的属性，因为使用hasOwnProperty方法过滤</p>
+                    <p>如果 obj/array为 undefined或 null，不会抛出错误</p>
+                </td>
+            </tr>
+            <tr>
+                <td>angular.bind</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>angular.bind</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<style>
+    .table-illustrate tr td:first-of-type{
+        vertical-align: middle;
+    }
+    .table-illustrate ul{
+        padding-left: 2em;
+    }
+</style>

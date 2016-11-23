@@ -1,0 +1,23 @@
+<div>
+    <h3 class="text-center">自定义指令</h3>
+    Directive 属性：
+        <label class="radio-inline">
+            <input type="radio" name="propType" ng-model="vm.propType" value="scope"/>
+            scope
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="propType" ng-model="vm.propType" value="controller"/>
+            controller
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="propType" ng-model="vm.propType" value="transclude"/>
+            transclude
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="propType" ng-model="vm.propType" value="compile"/>
+            compile&link
+        </label>
+    <div ui-view="transclude" ng-if="vm.propType == 'transclude'"></div>
+    <div ui-view="scope" ng-if="vm.propType == 'scope'"></div>
+    <div ui-view="controller" ng-if="vm.propType == 'controller'"></div>
+</div>

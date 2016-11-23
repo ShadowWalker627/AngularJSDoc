@@ -95,6 +95,13 @@ app.config(function ($compileProvider,$stateProvider, $urlRouterProvider) {
             controllerAs: 'vm'
         },
         {
+            name: '$compile',
+            url: '/$compile',
+            templateUrl: './doc/ng-service/$compile.html',
+            controller: $compileCtrl,
+            controllerAs: 'vm'
+        },
+        {
             name: '$q',
             url:'/$q',
             templateUrl: './doc/ng-service/$q.html',
@@ -113,6 +120,36 @@ app.config(function ($compileProvider,$stateProvider, $urlRouterProvider) {
             url:'/understandingScope',
             templateUrl: './doc/guide/understandingScope.html',
             controller: understandingScopeCtrl,
+            controllerAs: 'vm'
+        },
+        {
+            name: 'directives',
+            url: '/directives',
+            templateUrl: './doc/guide/directives.html',
+            controller: directivesCtrl,
+            controllerAs: 'vm'
+        },
+        {
+            name: 'directivesProp',
+            url: '/directivesProp',
+            parent: 'directives',
+            views: {
+                'scope':{
+                  templateUrl: './doc/guide/directives/scope.html'
+                },
+                'transclude':{
+                    templateUrl: './doc/guide/directives/transclude.html'
+                },
+                'controller':{
+                    templateUrl: './doc/guide/directives/controller.html'
+                }
+            }
+        },
+        {
+            name:'ngFunction',
+            url: '/ngFunction',
+            templateUrl: './doc/guide/ng-function.html',
+            controller: ngFunctionCtrl,
             controllerAs: 'vm'
         }
     ];

@@ -11,12 +11,21 @@ legend, table, caption, tbody, tfoot, thead, tr, th, td {
     font-weight: normal;
     font-style: normal;
     border: none;
-    color: #111111;
+    /*color: #111111;*/
     font-family: arial, 宋体, sans-serif;
+}
+
+pre{
+    font-size: 14px;
 }
 
 body{
     background-color: #f5f5d5;
+}
+
+input[type = 'checkbox']{
+    margin: 0;
+    height: 14px;
 }
 
 .container{
@@ -52,26 +61,27 @@ body{
 #header #search{
     float: right;
     margin: 1.3em 1em;
-    border: #c0c0c0 solid 1px;
+    /*border: #c0c0c0 solid 1px;*/
 }
 
-#header #searchBox{
+#header #searchInput{
     float: left;
     border: 0;
     width: 15em;
     line-height: 2em;
     padding: 0;
 }
-#header #searchBox:focus{
+#header #searchInput:focus{
     /*输入框获取焦点时取消边框*/
     outline: none;
 }
 #header #searchBtn{
+    display: inline-block;
     float: left;
     background-color: #ffffff;
     height: 1.1em;
     width: 1.1em;
-    padding: 0.2em;
+    /*padding: 0.2em;*/
     cursor:pointer;
 }
 
@@ -104,22 +114,22 @@ body{
     font-weight: bolder;
 }
 
-input[type = 'checkbox']{
-    margin: 0;
-    height: 14px;
-}
-
 .text-center {
     text-align: center;
 }
 
 /*解释部分*/
 .notePad{
+    margin-top: 1em;
     padding: 10px;
     border: 0.3em #e0dfcc solid;
     border-radius: 1em;
     /*小屏幕内容溢出*/
     overflow: auto;
+}
+
+.notePad pre{
+    padding: 1.5em;
 }
 
 /*代码块*/
@@ -134,7 +144,7 @@ input[type = 'checkbox']{
 /*控制台*/
 .terminal{
     background-color: #0e0e0e;
-    color: #5eb95e;
+    color: #62c462;
     padding: 1em;
     border: 0.3em #e0dfcc solid;
     border-radius: 0.3em;

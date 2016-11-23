@@ -24,15 +24,17 @@
         $pending
         $submitted
         $error：除 error外，其他属性值都为 boolean。error 值为 object
+
+    需要在 controller 中获得FormController 的以上表单属性，需要将 form 的 name 属性绑定到controller别名
 </pre>
     </div>
     <div class="codePad">
-        <form name="myForm" class="my-form" ng-submit="vm.submit()">
+        <form name="vm.myForm" class="my-form" ng-submit="vm.submit()">
             userType:<input type="text" ng-model="vm.userType" ng-required="vm.required"
                             ng-minlength="3" ng-maxlength="8" ng-trim="true"/>
             <input type="submit" value="submitBtn"
-                   ng-disabled="myForm.$pristine || (vm.userType == '') || myForm.$invalid
-                                    && myForm.$error || myForm.$submitted"
+                   ng-disabled="vm.myForm.$pristine || (vm.userType == '') || vm.myForm.$invalid
+                                    && vm.myForm.$error || vm.myForm.$submitted"
                    ng-click="vm.submitClick()"/>
         </form>
     </div>
