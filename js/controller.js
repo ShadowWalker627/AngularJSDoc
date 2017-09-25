@@ -1,3 +1,4 @@
+
 /**
  * Created by baymax on 16/11/9.
  */
@@ -12,12 +13,18 @@ $qCtrl.$injector = [];
 function MainCtrl(FooService, $interval) {
     var vm = this;
 
+		// http://www.jb51.net/article/74606.htm
+		// moment 中文
     $interval(function () {
         vm.time = new Date();
     }, 1000);
 
     /**
+     *
      * null 是对象，undefined 独立的一个类型
+     * if 判断 false
+     * typeof null undefined
+     *
      * */
 //            var myData = {
 //                name: 'Adam'

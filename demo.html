@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		#info {
+			display: none;
+		}
+	</style>
+	<script>
+//		window.onload = function () {
+			function check(obj) {
+				var v1 = parseFloat(obj.box1.value);
+				var v2 = parseFloat(obj.box2.value);
+				var v3 = parseFloat(obj.box3.value);
+				document.getElementById('box1').focus();
+				var arr = [v1, v2, v3];
+				arr.sort(arr);
+//				var c = a || b;
+				if (arr[0] > 4 && arr[1] > 80 && arr[2] > 0.3) {
+					console.log('dsfgfe');
+				}
+				 else {
+					console.log('234234');
+				}
+			}
+			
+			function checkType(){
+//				console.log('checkType');
+				var v1 = document.getElementById('box1').value;
+				var infoSpan = document.getElementById('info');
+				if (v1 > 4) {
+					console.log(v1);
+					infoSpan.style.display = 'inline-block';
+				}
+//				console.log(v1)
+			}
+	</script>
+</head>
+<body>
+	
+	<form name="frm">
+		xxx: <input id="box1" type="text" name="box1"
+		            value=""
+		            onblur="checkType()"
+					/>
+		<div style="display: inline-block">124</div>
+		<span id="info">你输错了</span>
+		xxx: <input id="box2" type="text" name="box2" value="" />
+		xxx: <input id="box3" type="text" name="box3" value="" />
+		<button type="button" value="测试" onclick="check(document.frm)">
+			检测
+		</button>
+	</form>
+</body>
+</html>
